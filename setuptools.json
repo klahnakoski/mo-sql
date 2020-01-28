@@ -29,5 +29,5 @@
     "packages": ["mo_sql"],
     "python_requires": "==2.7, ==3.6, ==3.7, ==3.8",
     "url": "https://github.com/klahnakoski/mo-sql",
-    "version": "3.33.20028"
+    "version": "3.34.20028"
 }

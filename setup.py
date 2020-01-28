@@ -11,9 +11,9 @@ setup(
     include_package_data=True,
     classifiers=["Development Status :: 4 - Beta","Topic :: Software Development :: Libraries","Topic :: Software Development :: Libraries :: Python Modules","License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)","Programming Language :: Python :: 2.7","Programming Language :: Python :: 3.6","Programming Language :: Python :: 3.7","Programming Language :: Python :: 3.8"],
     install_requires=["mo-dots>=3.33.20028","mo-future>=3.32.20028","mo-logs>=3.33.20028"],
-    version=u'3.33.20028',
+    version=u'3.34.20028',
     url=u'https://github.com/klahnakoski/mo-sql',
-    python_requires=u'2.7, 3.6, 3.7, 3.8',
+    python_requires=u'==2.7, ==3.6, ==3.7, ==3.8',
     packages=["mo_sql"],
     long_description=u'# mo-sql\n\nSQL datatype and some number of constant for safe SQL composition\n',
     name=u'mo-sql'
