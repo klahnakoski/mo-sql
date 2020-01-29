@@ -1,3 +1,5 @@
 # mo-sql
 
-SQL datatype and some number of constant for safe SQL composition
+More SQL!
+
+A SQL datatype, plus a number of constants for safe SQL composition.
