@@ -3,18 +3,18 @@
 from __future__ import unicode_literals
 from setuptools import setup
 setup(
-    description=u'More SQL!  For safely assembling SQL',
-    license=u'MPL 2.0',
-    author=u'Kyle Lahnakoski',
-    author_email=u'kyle@lahnakoski.com',
-    long_description_content_type=u'text/markdown',
-    include_package_data=True,
+    author='Kyle Lahnakoski',
+    author_email='kyle@lahnakoski.com',
     classifiers=["Development Status :: 4 - Beta","Topic :: Software Development :: Libraries","Topic :: Software Development :: Libraries :: Python Modules","License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)","Programming Language :: Python :: 2.7","Programming Language :: Python :: 3.6","Programming Language :: Python :: 3.7","Programming Language :: Python :: 3.8"],
+    description='More SQL!  For safely assembling SQL',
+    include_package_data=True,
     install_requires=["mo-dots>=3.33.20028","mo-future>=3.32.20028","mo-logs>=3.33.20028"],
-    version=u'3.35.20029',
-    url=u'https://github.com/klahnakoski/mo-sql',
-    python_requires=u'==2.7, ==3.6, ==3.7, ==3.8',
+    license='MPL 2.0',
+    long_description='# mo-sql\n\nMore SQL!\n\nA SQL datatype, plus a number of constants for safe SQL composition.',
+    long_description_content_type='text/markdown',
+    name='mo-sql',
     packages=["mo_sql"],
-    long_description=u'# mo-sql\n\nMore SQL!\n\nA SQL datatype, plus a number of constants for safe SQL composition.',
-    name=u'mo-sql'
+    python_requires='==2.7, ==3.6, ==3.7, ==3.8',
+    url='https://github.com/klahnakoski/mo-sql',
+    version='3.36.20030'
 )
