@@ -14,7 +14,7 @@ setup(
     long_description_content_type='text/markdown',
     name='mo-sql',
     packages=["mo_sql"],
-    python_requires='==2.7, ==3.6, ==3.7, ==3.8',
+    python_requires='>=2.7, >=3.6, >=3.7, >=3.8',
     url='https://github.com/klahnakoski/mo-sql',
-    version='3.36.20030'
+    version='3.37.20031'
 )
