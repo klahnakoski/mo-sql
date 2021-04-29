@@ -2,4 +2,4 @@
 
 More SQL!
 
-A SQL datatype, plus a number of constants for safe SQL composition.
+A SQL datatype, plus a number of functions and constants for type-safe SQL composition.

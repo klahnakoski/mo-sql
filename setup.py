@@ -8,12 +8,12 @@ setup(
     classifiers=["Development Status :: 4 - Beta","Topic :: Software Development :: Libraries","Topic :: Software Development :: Libraries :: Python Modules","License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)","Programming Language :: Python :: 2.7","Programming Language :: Python :: 3.6","Programming Language :: Python :: 3.7","Programming Language :: Python :: 3.8"],
     description='More SQL!  For safely assembling SQL',
     include_package_data=True,
-    install_requires=["mo-dots>=3.77.20190","mo-future>=3.71.20168","mo-logs>=3.75.20189"],
+    install_requires=["mo-dots==4.22.21108","mo-future==3.147.20327","mo-logs==4.23.21108"],
     license='MPL 2.0',
-    long_description='# mo-sql\n\nMore SQL!\n\nA SQL datatype, plus a number of constants for safe SQL composition.',
+    long_description='# mo-sql\n\nMore SQL!\n\nA SQL datatype, plus a number of functions and constants for type-safe SQL composition.',
     long_description_content_type='text/markdown',
     name='mo-sql',
     packages=["mo_sql"],
     url='https://github.com/klahnakoski/mo-sql',
-    version='3.77.20190'
+    version='4.26.21119'
 )
