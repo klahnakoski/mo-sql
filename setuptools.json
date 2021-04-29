@@ -13,7 +13,7 @@
     ],
     "description": "More SQL!  For safely assembling SQL",
     "include_package_data": true,
-    "install_requires": ["mo-dots>=3.77.20190", "mo-future>=3.71.20168", "mo-logs>=3.75.20189"],
+    "install_requires": ["mo-dots==4.22.21108", "mo-future==3.147.20327", "mo-logs==4.23.21108"],
     "license": "MPL 2.0",
     "long_description": {
         "$concat": [
@@ -21,7 +21,7 @@
             "",
             "More SQL!",
             "",
-            "A SQL datatype, plus a number of constants for safe SQL composition."
+            "A SQL datatype, plus a number of functions and constants for type-safe SQL composition."
         ],
         "separator": "\n"
     },
@@ -29,5 +29,5 @@
     "name": "mo-sql",
     "packages": ["mo_sql"],
     "url": "https://github.com/klahnakoski/mo-sql",
-    "version": "3.77.20190"
+    "version": "4.26.21119"
 }
