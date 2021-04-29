@@ -19,6 +19,5 @@ class TestSpeed(FuzzyTestCase):
     def test_string_concat(self):
         pass
 
-
     def test_fstring(self):
         pass
