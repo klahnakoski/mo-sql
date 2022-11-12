@@ -9,12 +9,12 @@ setup(
     description='More SQL!  For safely assembling SQL',
     extras_require={"tests":["mo-testing"]},
     include_package_data=True,
-    install_requires=["mo-dots==9.230.22310","mo-future==6.230.22310","mo-logs==7.230.22310"],
+    install_requires=["mo-dots==9.238.22316","mo-future==6.230.22310","mo-logs==7.238.22316"],
     license='MPL 2.0',
     long_description='# mo-sql\n\nMore SQL!\n\nA SQL datatype, plus a number of functions and constants for type-safe SQL composition.',
     long_description_content_type='text/markdown',
     name='mo-sql',
     packages=["mo_sql"],
     url='https://github.com/klahnakoski/mo-sql',
-    version='4.230.22310'
+    version='4.239.22316'
 )
