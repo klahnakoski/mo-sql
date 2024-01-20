@@ -6,24 +6,31 @@
         "Topic :: Software Development :: Libraries",
         "Topic :: Software Development :: Libraries :: Python Modules",
         "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
-        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
-        "Programming Language :: Python :: 3.11"
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12"
     ],
     "description": "More SQL!  For safely assembling SQL",
     "extras_require": {"tests": ["mo-testing"]},
     "include_package_data": true,
-    "install_requires": ["mo-dots==9.251.22317", "mo-future==6.230.22310", "mo-logs==7.252.22317"],
+    "install_requires": [
+          "mo-dots==9.476.24007", "mo-future==7.476.24007",   "mo-json==6.486.24020",
+          "mo-logs==8.477.24007"
+    ],
     "license": "MPL 2.0",
     "long_description": {
         "$concat": [
-            "# mo-sql",
+            "# More SQL!",
             "",
-            "More SQL!",
+            "A number of generator functions for type-safe SQL composition.",
             "",
-            "A SQL datatype, plus a number of functions and constants for type-safe SQL composition."
+            "",
+            "[![PyPI Latest Release](https://img.shields.io/pypi/v/jx-sqlite.svg)](https://pypi.org/project/mo-sql/)",
+            "[![Build Status](https://app.travis-ci.com/klahnakoski/mo-sql.svg?branch=master)](https://travis-ci.com/github/klahnakoski/mo-sql)",
+            "",
+            "## Summary"
         ],
         "separator": "\n"
     },
@@ -31,5 +38,5 @@
     "name": "mo-sql",
     "packages": ["mo_sql"],
     "url": "https://github.com/klahnakoski/mo-sql",
-    "version": "4.252.22317"
+    "version": "4.489.24020"
 }
