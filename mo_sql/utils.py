@@ -22,15 +22,15 @@ from mo_json import (
     NUMBER,
     OBJECT,
     STRING,
-    T_BOOLEAN,
-    T_TEXT,
-    T_NUMBER,
+    JX_BOOLEAN,
+    JX_TEXT,
+    JX_NUMBER,
     IS_NULL,
     TIME,
     INTERVAL,
-    T_IS_NULL,
-    T_TIME,
-    T_INTERVAL,
+    JX_IS_NULL,
+    JX_TIME,
+    JX_INTERVAL,
 )
 from mo_logs import Log
 from mo_math import randoms
@@ -138,12 +138,12 @@ json_type_to_sql_type_key = {
     STRING: SQL_STRING_KEY,
     OBJECT: SQL_OBJECT_KEY,
     ARRAY: SQL_ARRAY_KEY,
-    T_IS_NULL: SQL_IS_NULL_KEY,
-    T_BOOLEAN: SQL_BOOLEAN_KEY,
-    T_NUMBER: SQL_NUMBER_KEY,
-    T_TIME: SQL_TIME_KEY,
-    T_INTERVAL: SQL_INTERVAL_KEY,
-    T_TEXT: SQL_STRING_KEY,
+    JX_IS_NULL: SQL_IS_NULL_KEY,
+    JX_BOOLEAN: SQL_BOOLEAN_KEY,
+    JX_NUMBER: SQL_NUMBER_KEY,
+    JX_TIME: SQL_TIME_KEY,
+    JX_INTERVAL: SQL_INTERVAL_KEY,
+    JX_TEXT: SQL_STRING_KEY,
 }
 
 sql_type_key_to_json_type = {
