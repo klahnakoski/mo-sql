@@ -8,12 +8,12 @@ setup(
     description='More SQL!  For safely assembling SQL',
     extras_require={"tests":["mo-testing"]},
     include_package_data=True,
-    install_requires=["mo-dots==9.508.24028","mo-future==7.507.24028","mo-json==6.511.24028","mo-logs==8.508.24028"],
+    install_requires=["mo-dots==9.520.24032","mo-future==7.520.24032","mo-json==6.522.24033","mo-logs==8.522.24033"],
     license='MPL 2.0',
     long_description='# More SQL!\n\nA number of generator functions for type-safe SQL composition.\n\n\n[![PyPI Latest Release](https://img.shields.io/pypi/v/jx-sqlite.svg)](https://pypi.org/project/mo-sql/)\n[![Build Status](https://app.travis-ci.com/klahnakoski/mo-sql.svg?branch=master)](https://travis-ci.com/github/klahnakoski/mo-sql)\n\n## Summary',
     long_description_content_type='text/markdown',
     name='mo-sql',
     packages=["mo_sql"],
     url='https://github.com/klahnakoski/mo-sql',
-    version='4.511.24028'
+    version='4.522.24033'
 )
