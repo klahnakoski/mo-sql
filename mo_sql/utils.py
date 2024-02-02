@@ -24,8 +24,6 @@ ORDER = "__order__"
 PARENT = "__parent__"
 COLUMN = "__column"
 
-ALL_TYPES = "bns"
-
 
 def unique_name():
     return randoms.string(20)
@@ -87,7 +85,10 @@ sql_aggs = {
     "minimum": "MIN",
     "sum": "SUM",
     "add": "SUM",
+    "any": "MAX",
+    "all": "MIN",
 }
+
 
 STATS = {
     "count": "COUNT({{value}})",
