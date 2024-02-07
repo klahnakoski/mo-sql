@@ -6,6 +6,9 @@
         "Topic :: Software Development :: Libraries",
         "Topic :: Software Development :: Libraries :: Python Modules",
         "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+        "Topic :: Database",
+        "Topic :: Utilities",
+        "Programming Language :: SQL",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
@@ -16,8 +19,8 @@
     "extras_require": {"tests": ["mo-testing>=7.523.24033"]},
     "include_package_data": true,
     "install_requires": [
-          "mo-dots==9.531.24035", "mo-future==7.531.24035",   "mo-json==6.538.24037",
-          "mo-logs==8.538.24037"
+          "mo-dots==9.541.24038", "mo-future==7.541.24038",   "mo-json==6.541.24038",
+          "mo-logs==8.541.24038"
     ],
     "license": "MPL 2.0",
     "long_description": {
@@ -38,5 +41,5 @@
     "name": "mo-sql",
     "packages": ["mo_sql"],
     "url": "https://github.com/klahnakoski/mo-sql",
-    "version": "4.538.24037"
+    "version": "4.542.24038"
 }
