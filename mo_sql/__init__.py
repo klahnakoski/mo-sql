@@ -33,7 +33,10 @@ class SQL(object):
         raise Log.error("not implemented")
 
     def __len__(self):
-        return len(self.sql)
+        raise Log.error("not implemented")
+
+    def __bool__(self):
+        return True
 
     def __add__(self, other):
         if not isinstance(other, SQL):
@@ -68,6 +71,7 @@ class SQL(object):
     def __str__(self):
         return "".join(self)
 
+    __repr__ = __str__
 
 class TextSQL(SQL):
     __slots__ = ["value"]
@@ -219,8 +223,8 @@ SQL_AS = SQL(" AS ")
 SQL_LIKE = SQL(" LIKE ")
 SQL_ESCAPE = SQL(" ESCAPE ")
 SQL_TO = SQL(" TO ")
-SQL_OP = SQL("(")
-SQL_CP = SQL(")")
+SQL_LP = SQL_OP = SQL("(")
+SQL_RP = SQL_CP = SQL(")")
 SQL_IN = SQL(" IN ")
 SQL_GT = SQL(" > ")
 SQL_GE = SQL(" >= ")
