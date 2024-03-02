@@ -73,6 +73,7 @@ class SQL(object):
 
     __repr__ = __str__
 
+
 class TextSQL(SQL):
     __slots__ = ["value"]
 
@@ -106,6 +107,7 @@ class JoinSQL(SQL):
                 Log.error("Expecting SQL, not text")
             if any(not isinstance(s, SQL) for s in concat):
                 Log.error("Can only join other SQL")
+            is_finite = list(cc for c in concat for cc in c)
         self.sep = sep
         self.concat = concat
 
@@ -127,6 +129,8 @@ class IndentSQL(SQL):
                 concat = tuple(concat)
             if any(not isinstance(s, SQL) for s in concat):
                 Log.error("Can only join other SQL")
+
+            is_finite = list(cc for c in concat for cc in c)
         self.concat = concat
 
     def __iter__(self):
@@ -151,6 +155,7 @@ class ConcatSQL(SQL):
         if ENABLE_TYPE_CHECKING:
             if any(not isinstance(s, SQL) for s in concat):
                 Log.error("Can only join other SQL not {value}", value=first(s for s in concat if not isinstance(s, SQL)))
+            is_finite = list(cc for c in concat for cc in c)
         self.concat = concat
 
     def __iter__(self):
