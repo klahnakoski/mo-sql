@@ -17,8 +17,6 @@ class SQL(object):
     ENSURES ONLY SQL OBJECTS ARE CONCATENATED TO MAKE MORE SQL OBJECTS
     """
 
-    __slots__ = []
-
     def __new__(cls, value=None, *args, **kwargs):
         if not args and is_text(value):
             return object.__new__(TextSQL)
@@ -75,7 +73,6 @@ class SQL(object):
 
 
 class TextSQL(SQL):
-    __slots__ = ["value"]
 
     def __init__(self, value):
         """
@@ -84,10 +81,10 @@ class TextSQL(SQL):
         SQL.__init__(self)
         if ENABLE_TYPE_CHECKING and isinstance(value, SQL):
             Log.error("Expecting text, not SQL")
-        self.value = value
+        self._value = value
 
     def __iter__(self):
-        yield self.value
+        yield self._value
 
 
 class JoinSQL(SQL):
@@ -107,7 +104,6 @@ class JoinSQL(SQL):
                 Log.error("Expecting SQL, not text")
             if any(not isinstance(s, SQL) for s in concat):
                 Log.error("Can only join other SQL")
-            is_finite = list(cc for c in concat for cc in c)
         self.sep = sep
         self.concat = concat
 
@@ -130,7 +126,6 @@ class IndentSQL(SQL):
             if any(not isinstance(s, SQL) for s in concat):
                 Log.error("Can only join other SQL")
 
-            is_finite = list(cc for c in concat for cc in c)
         self.concat = concat
 
     def __iter__(self):
@@ -155,7 +150,6 @@ class ConcatSQL(SQL):
         if ENABLE_TYPE_CHECKING:
             if any(not isinstance(s, SQL) for s in concat):
                 Log.error("Can only join other SQL not {value}", value=first(s for s in concat if not isinstance(s, SQL)))
-            is_finite = list(cc for c in concat for cc in c)
         self.concat = concat
 
     def __iter__(self):
