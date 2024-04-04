@@ -1,6 +1,7 @@
 *.iml
 .idea
 .svn
+*.egg-info
 
 /setup.py
 
