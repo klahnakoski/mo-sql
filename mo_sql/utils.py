@@ -5,13 +5,10 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 #
-
-from mo_math import randoms
-
-from jx_base import DataClass
-from mo_dots import is_list, join_field
+from mo_dots import join_field
 from mo_json import *
 from mo_logs import Log
+from mo_math import randoms
 from mo_times import Date
 
 DIGITS_TABLE = "__digits__"
@@ -164,45 +161,3 @@ jx_type_to_sql_type_key = {
     JX_INTERVAL: SQL_INTERVAL_KEY,
     JX_TEXT: SQL_STRING_KEY,
 }
-
-ColumnMapping = DataClass(
-    "ColumnMapping",
-    [
-        {  # EDGES ARE AUTOMATICALLY INCLUDED IN THE OUTPUT, USE THIS TO INDICATE EDGES SO WE DO NOT DOUBLE-PRINT
-            "name": "is_edge",
-            "default": False,
-        },
-        {  # TRACK NUMBER OF TABLE COLUMNS THIS column REPRESENTS
-            "name": "num_push_columns",
-            "nulls": True,
-        },
-        {  # NAME OF THE PROPERTY (USED BY LIST FORMAT ONLY)
-            "name": "push_list_name",
-            "nulls": True,
-        },
-        {  # PATH INTO COLUMN WHERE VALUE IS STORED ("." MEANS COLUMN HOLDS PRIMITIVE VALUE)
-            "name": "push_column_child",
-            "nulls": True,
-        },
-        {"name": "push_column_index", "nulls": True},  # THE COLUMN NUMBER
-        {  # THE COLUMN NAME FOR TABLES AND CUBES (WITH NO ESCAPING DOTS, NOT IN LEAF FORM)
-            "name": "push_column_name",
-            "nulls": True,
-        },
-        {"name": "pull", "nulls": True},  # A FUNCTION THAT WILL RETURN A VALUE
-        {  # A LIST OF MULTI-SQL REQUIRED TO GET THE VALUE FROM THE DATABASE
-            "name": "sql",
-        },
-        "type",  # THE NAME OF THE JSON DATA TYPE EXPECTED
-        {  # A LIST OF PATHS EACH INDICATING AN ARRAY
-            "name": "nested_path",
-            "type": list,
-            "default": ["."],
-        },
-        "column_alias",
-    ],
-    constraint={"and": [
-        {"in": {"type": ["0", "boolean", "number", "string", "object"]}},
-        {"gte": [{"length": "nested_path"}, 1]},
-    ]},
-)
