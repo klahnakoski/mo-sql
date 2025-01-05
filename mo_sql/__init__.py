@@ -11,7 +11,7 @@ from mo_logs import Log
 ENABLE_TYPE_CHECKING = True
 
 
-class SQL(object):
+class SQL:
     """
     THIS CLASS USES THE TYPE SYSTEM TO PREVENT SQL INJECTION ATTACKS
     ENSURES ONLY SQL OBJECTS ARE CONCATENATED TO MAKE MORE SQL OBJECTS
@@ -234,7 +234,7 @@ SQL_NEG = SQL("-")
 SQL_DOT = SQL(".")
 
 
-class DB(object):
+class DB:
     """
     Quoting, or escaping, database entitiy names (columns, tables, etc) is database specific
     """
