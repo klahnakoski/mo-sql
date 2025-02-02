@@ -4,5 +4,5 @@
 *.egg-info
 
 /setup.py
-
-
+/build/
+/MANIFEST.in
