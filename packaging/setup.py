@@ -15,5 +15,5 @@ setup(
     name='mo-sql',
     packages=["mo_sql"],
     url='https://github.com/klahnakoski/mo-sql',
-    version='4.669.25033'
+    version='4.670.25033'
 )
