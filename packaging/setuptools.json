@@ -17,11 +17,11 @@
         "Programming Language :: Python :: 3.13"
     ],
     "description": "More SQL!  For safely assembling SQL",
-    "extras_require": {"tests": ["mo-testing>=8.623.24125"]},
+    "extras_require": {"tests": ["mo-testing>=8.667.25032"]},
     "include_package_data": true,
     "install_requires": [
-         "mo-dots==10.659.25005", "mo-future==7.584.24095",   "mo-json==6.667.25032",
-          "mo-logs==8.667.25032"
+         "mo-dots==10.671.25036", "mo-future==7.671.25036",   "mo-json==6.671.25036",
+          "mo-logs==8.671.25036"
     ],
     "license": "MPL 2.0",
     "long_description": {
@@ -42,5 +42,5 @@
     "name": "mo-sql",
     "packages": ["mo_sql"],
     "url": "https://github.com/klahnakoski/mo-sql",
-    "version": "4.670.25033"
+    "version": "4.671.25036"
 }
