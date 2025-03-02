@@ -1,2 +1,2 @@
-mo-testing>=8.667.25032
-jx-python
+mo-testing>=8.674.25037
+jx-python>=4.673.25037
