@@ -38,11 +38,7 @@ class SQL:
 
     def __add__(self, other):
         if not isinstance(other, SQL):
-            if (
-                is_text(other)
-                and ENABLE_TYPE_CHECKING
-                and all(c not in other for c in ('"', "'", "`", "\\"))
-            ):
+            if is_text(other) and ENABLE_TYPE_CHECKING and all(c not in other for c in ('"', "'", "`", "\\")):
                 return ConcatSQL(self, SQL(other))
             Log.error("Can only concat other SQL")
         else:
@@ -50,11 +46,7 @@ class SQL:
 
     def __radd__(self, other):
         if not isinstance(other, SQL):
-            if (
-                is_text(other)
-                and ENABLE_TYPE_CHECKING
-                and all(c not in other for c in ('"', "'", "`", "\\"))
-            ):
+            if is_text(other) and ENABLE_TYPE_CHECKING and all(c not in other for c in ('"', "'", "`", "\\")):
                 return ConcatSQL(SQL(other), self)
             Log.error("Can only concat other SQL", stack_depth=1)
         else:
@@ -73,7 +65,6 @@ class SQL:
 
 
 class TextSQL(SQL):
-
     def __init__(self, value):
         """
         ACTUAL SQL, DO NOT QUOTE value
@@ -149,7 +140,9 @@ class ConcatSQL(SQL):
         """
         if ENABLE_TYPE_CHECKING:
             if any(not isinstance(s, SQL) for s in concat):
-                Log.error("Can only join other SQL not {value}", value=first(s for s in concat if not isinstance(s, SQL)))
+                Log.error(
+                    "Can only join other SQL not {value}", value=first(s for s in concat if not isinstance(s, SQL)),
+                )
         self.concat = concat
 
     def __iter__(self):
@@ -236,7 +229,7 @@ SQL_DOT = SQL(".")
 
 class DB:
     """
-    Quoting, or escaping, database entitiy names (columns, tables, etc) is database specific
+    Quoting, or escaping, database entity names (columns, tables, etc) is database specific
     """
 
     def quote_column(self, *path):

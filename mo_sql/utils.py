@@ -5,10 +5,13 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at https://www.mozilla.org/en-US/MPL/2.0/.
 #
-from mo_dots import join_field
+
+from mo_math import randoms
+
+from jx_base import DataClass
+from mo_dots import is_list, join_field, concat_field, split_field, is_data
 from mo_json import *
 from mo_logs import Log
-from mo_math import randoms
 from mo_times import Date
 
 DIGITS_TABLE = "__digits__"
@@ -57,7 +60,10 @@ def untyped_column(column_name):
     if SQL_KEY_PREFIX in column_name:
         path = split_field(column_name)
         if path[-1] in SQL_KEYS:
-            return join_field([p for p in path[:-1] if p != SQL_ARRAY_KEY]), sql_type_key_to_json_type.get(path[-1])
+            return (
+                join_field([p for p in path[:-1] if p != SQL_ARRAY_KEY]),
+                sql_type_key_to_json_type.get(path[-1]),
+            )
         else:
             return join_field([p for p in path if p != SQL_ARRAY_KEY]), None
     elif column_name in [GUID]:
@@ -121,7 +127,7 @@ SQL_KEYS = [
     SQL_INTERVAL_KEY,
     SQL_STRING_KEY,
     SQL_OBJECT_KEY,
-    SQL_ARRAY_KEY
+    SQL_ARRAY_KEY,
 ]
 
 
@@ -161,3 +167,33 @@ jx_type_to_sql_type_key = {
     JX_INTERVAL: SQL_INTERVAL_KEY,
     JX_TEXT: SQL_STRING_KEY,
 }
+
+ColumnMapping = DataClass(
+    "ColumnMapping",
+    [
+        {  # EDGES ARE AUTOMATICALLY INCLUDED IN THE OUTPUT, USE THIS TO INDICATE EDGES SO WE DO NOT DOUBLE-PRINT
+            "name": "is_edge",
+            "default": False,
+        },
+        {"name": "num_push_columns", "nulls": True,},  # TRACK NUMBER OF TABLE COLUMNS THIS column REPRESENTS
+        {"name": "push_list_name", "nulls": True,},  # NAME OF THE PROPERTY (USED BY LIST FORMAT ONLY)
+        {  # PATH INTO COLUMN WHERE VALUE IS STORED ("." MEANS COLUMN HOLDS PRIMITIVE VALUE)
+            "name": "push_column_child",
+            "nulls": True,
+        },
+        {"name": "push_column_index", "nulls": True},  # THE COLUMN NUMBER
+        {  # THE COLUMN NAME FOR TABLES AND CUBES (WITH NO ESCAPING DOTS, NOT IN LEAF FORM)
+            "name": "push_column_name",
+            "nulls": True,
+        },
+        {"name": "pull", "nulls": True},  # A FUNCTION THAT WILL RETURN A VALUE
+        {"name": "sql",},  # A LIST OF MULTI-SQL REQUIRED TO GET THE VALUE FROM THE DATABASE
+        "type",  # THE NAME OF THE JSON DATA TYPE EXPECTED
+        {"name": "nested_path", "type": list, "default": ["."],},  # A LIST OF PATHS EACH INDICATING AN ARRAY
+        "column_alias",
+    ],
+    constraint={"and": [
+        {"in": {"type": ["0", "boolean", "number", "string", "object"]}},
+        {"gte": [{"length": "nested_path"}, 1]},
+    ]},
+)
